@@ -1,4 +1,5 @@
 # scrape
+lets you scrape multiple urls for text from a csv file
 
 ### Setup dependencies
 ```
@@ -6,6 +7,7 @@ make init
 ```
 
 ### Sample execution
+test.csv
 | Name | Url |
 | --- | --- |
 | nytimes | https://www.nytimes.com |
