@@ -8,6 +8,7 @@ make init
 
 ### Sample execution
 test.csv
+
 | Name | Url |
 | --- | --- |
 | nytimes | https://www.nytimes.com |
