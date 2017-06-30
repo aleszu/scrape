@@ -11,7 +11,7 @@ q = Queue()
 lock = threading.Lock()
 total_articles = 0
 cur_article = 0
-TARGET_PATH = ''
+target_path = ''
 
 # Represents Article
 class Article():
@@ -51,7 +51,7 @@ class Article():
         fname = (''.join([c for c in self.headline.split(' ')])).replace('/', '').replace('.', '').replace("'", "") + '.txt'
         # write text to file
         try:
-            f = open(TARGET_PATH + fname, 'w')
+            f = open(target_path + fname, 'w')
             f.write(self.text)
             f.close()
         except:
@@ -88,11 +88,11 @@ def init():
 
 # Set data destination
 def setDestination():
-    global TARGET_PATH
+    global target_path 
     dst = raw_input('path of where to store text files: ')
     if not os.path.exists(dst):
         os.makedirs(dst)
-    TARGET_PATH = dst
+    target_path = dst
 
 # updates task done count and prints update on progress
 def updateQueue():
@@ -126,11 +126,9 @@ def initThreads():
         t.daemon = True
         t.start()
 
-def main():
+if __name__ == '__main__':
     init()
     total_articles = q.qsize()
     setDestination()
     initThreads()
     q.join()
-
-main()
